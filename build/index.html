@@ -1,0 +1,1638 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+        >
+        <meta
+            content="Documentation for the Prodigy Protocol API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-576ecead.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;plaintext&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-975fcfb8.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="plaintext">plaintext</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#prodigy-api-documentation" class="toc-h1 toc-link" data-title="Prodigy API Documentation">Prodigy API Documentation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title=" Overview "><b> Overview </b></a>
+                  </li>
+                  <li>
+                    <a href="#currently-supported-instruments" class="toc-h2 toc-link" data-title="Currently Supported Instruments">Currently Supported Instruments</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#websocket-api" class="toc-h1 toc-link" data-title="Websocket API">Websocket API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#connectivity-alpha" class="toc-h2 toc-link" data-title="Connectivity (alpha)">Connectivity (alpha)</a>
+                  </li>
+                  <li>
+                    <a href="#authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-availability" class="toc-h2 toc-link" data-title="Websocket Availability">Websocket Availability</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-faq" class="toc-h2 toc-link" data-title="Websocket FAQ">Websocket FAQ</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#depth-of-market-subscription-depth" class="toc-h1 toc-link" data-title="Depth of Market subscription (depth)">Depth of Market subscription (depth)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#subscribe-message" class="toc-h2 toc-link" data-title="Subscribe message">Subscribe message</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+                  <li>
+                    <a href="#subsequent-responses" class="toc-h2 toc-link" data-title="Subsequent Responses">Subsequent Responses</a>
+                  </li>
+                  <li>
+                    <a href="#price-info-subscription-price_info" class="toc-h2 toc-link" data-title="Price Info Subscription (price_info)">Price Info Subscription (price_info)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#stunnel-connectivity" class="toc-h1 toc-link" data-title="stunnel Connectivity">stunnel Connectivity</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#setup-a-client-side-stunnel-to-connect-to-prodigy-s-clob" class="toc-h2 toc-link" data-title="Setup a client-side stunnel to connect to Prodigy’s CLOB">Setup a client-side stunnel to connect to Prodigy’s CLOB</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#image-dweomer-stunnel" class="toc-h1 toc-link" data-title="image: dweomer/stunnel">image: dweomer/stunnel</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#build-docker-container-with-the-prodigy-stunnel-docker-compose-yml-file" class="toc-h2 toc-link" data-title="Build Docker container with the Prodigy stunnel docker-compose.yml file">Build Docker container with the Prodigy stunnel docker-compose.yml file</a>
+                  </li>
+                  <li>
+                    <a href="#install-docker-and-docker-compose" class="toc-h2 toc-link" data-title="Install docker and docker-compose">Install docker and docker-compose</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fix-api" class="toc-h1 toc-link" data-title="FIX API">FIX API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#logon-lt-a-gt" class="toc-h2 toc-link" data-title="Logon &lt;A&gt;"><code>Logon &lt;A&gt;</code></a>
+                  </li>
+                  <li>
+                    <a href="#logout-lt-5-gt" class="toc-h2 toc-link" data-title="Logout &lt;5&gt;"><code>Logout &lt;5&gt;</code></a>
+                  </li>
+                  <li>
+                    <a href="#newordersingle-lt-d-gt" class="toc-h2 toc-link" data-title="NewOrderSingle &lt;D&gt;"><code>NewOrderSingle &lt;D&gt;</code></a>
+                  </li>
+                  <li>
+                    <a href="#ordercancelrequest-lt-f-gt" class="toc-h2 toc-link" data-title="OrderCancelRequest &lt;F&gt;"><code>OrderCancelRequest &lt;F&gt;</code></a>
+                  </li>
+                  <li>
+                    <a href="#ordermassstatus-lt-af-gt" class="toc-h2 toc-link" data-title="OrderMassStatus &lt;AF&gt;"><code>OrderMassStatus &lt;AF&gt;</code></a>
+                  </li>
+                  <li>
+                    <a href="#tradecapturereportrequest-lt-ad-gt" class="toc-h2 toc-link" data-title="TradeCaptureReportRequest &lt;AD&gt;"><code>TradeCaptureReportRequest &lt;AD&gt;</code></a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://prodigy.fi'>Prodigy Protocol</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='prodigy-api-documentation'>Prodigy API Documentation</h1><h2 id='overview'><b> Overview </b></h2>
+<p>This document describes the API for the Prodigy Protocol platform.</p>
+
+<p>By using any API provided by Prodigy, you agree to its Terms of Use and Privacy Policy.</p>
+<h2 id='currently-supported-instruments'>Currently Supported Instruments</h2>
+<ul>
+<li>BTC-USD: Bitcoin/USD spot price</li>
+</ul>
+<h1 id='websocket-api'>Websocket API</h1><h2 id='connectivity-alpha'>Connectivity (alpha)</h2>
+<p>wss://clob-alpha.dura.fi:36821</p>
+<h2 id='authorization'>Authorization</h2>
+<p>Please contact your Prodigy representative to request an Alpha CLOB token for your connectivity.</p>
+
+<p>No additional authorization is required at this time.</p>
+
+<p>After receiving your token, ensure that it is placed in the token field of your subscription request.</p>
+
+<p>Token example with characters rewritten: <code>0xdaaf5b74xxx8afd78xxxxx2eb5db442edb53d760ea16xxxc67707xxxxxc925e4</code></p>
+<h2 id='websocket-availability'>Websocket Availability</h2>
+<ul>
+<li>Sunday evening to Saturday evening EST.</li>
+<li>Currently includes a maintenance window on Thursday afternoons.</li>
+<li>Alpha environment times are not guaranteed.</li>
+</ul>
+<h2 id='websocket-faq'>Websocket FAQ</h2>
+<p>Q. I am getting an ERROR: <code>token wasn&#39;t supplied</code>?
+A. Token value must be supplied with the ws subscribeMessage for authentication.</p>
+
+<p>Q. Why is the price of BTC 10x more than it should be and what is the “denominator” value in the response?
+A. The denominator value is the factor to which we need to divide price by to derive the USD value of the asset. For example:</p>
+
+<p>if &quot;BestBidPrice&quot; :&quot;242385&quot; , &quot;Denominator&quot;:&quot;10&quot; &amp; &quot;Symbol&quot;:&quot;BTC-USD&quot; then the
+USD price of BTC is $24,238.5</p>
+
+<p>Q. What are the different responses coming from the depth ws connection?
+A. Aside from confirmation of the connection being established, the initial depth data message will detail the current depth of the market at each price level on both the buy and sell side. Subsequent messages will update depth at those price levels based on actions taken by market participants. These actions can be new orders being added, existing orders being canceled, modified, or taken.</p>
+<h1 id='depth-of-market-subscription-depth'>Depth of Market subscription (depth)</h1>
+<p>Gets depth data for a market.</p>
+<h2 id='subscribe-message'>Subscribe message</h2>
+<blockquote>
+<p>Subscribe message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{
+'user': 'g',
+'action': 'subscribe',
+'type': 'depth',
+'value': ['BTC-USD'],
+"token":"&lt;provided by Prodigy&gt;"
+};
+
+</code></pre></div><h2 id='response'>Response</h2>
+<p>The initial depth data response returns information about the market and its current buy and sell levels with data that describes the depth at each level.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Denominator</td>
+<td>Factor to divide <Price> by for USD value</td>
+</tr>
+<tr>
+<td>DisplaySymbol</td>
+<td>Display symbol of market</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>Exchange ID for market</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>Symbol of market</td>
+</tr>
+<tr>
+<td>buy_levels</td>
+<td>Array of buy orders by level (details for each below)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;NumOfOrders</td>
+<td>Number of orders at this buy level</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Price</td>
+<td>Price of orders at this buy level</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Qty</td>
+<td>Quantity of orders at this buy level</td>
+</tr>
+<tr>
+<td>sell_levels</td>
+<td>Array of sell orders by level (details for each below)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;NumOfOrders</td>
+<td>Number of orders at this sell level</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Qty</td>
+<td>Price of orders at this sell level</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;sell_levels</td>
+<td>Quantity of orders at this sell level</td>
+</tr>
+</tbody></table>
+
+<p>Example response:</p>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{
+  "data": {
+"Denominator":"100",
+"DisplaySymbol":"BTC-USD",
+"SecurityID":"1000000189",
+"Symbol":"BTC-USD",
+"buy_levels": [...
+{
+"NumOfOrders": "10",
+"Price": "2037600",
+"Qty": "4660000",
+},
+...],
+"sell_levels": [...
+{
+"NumOfOrders": "7",
+"Price": "2056150",
+"Qty": "6370000",
+},
+...],
+},
+  "Type":3
+</code></pre></div><h2 id='subsequent-responses'>Subsequent Responses</h2>
+<p>Updates depth data for a market. Subsequently, depth data responses return updates to the depth of the market.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Denominator</td>
+<td>Factor to divide <Price> by for USD value</td>
+</tr>
+<tr>
+<td>DisplaySymbol</td>
+<td>Display symbol of market</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>Exchange ID for market</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>Symbol of market</td>
+</tr>
+<tr>
+<td>updates</td>
+<td>Array of updates to market depth (details for each below)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Action</td>
+<td>Action that updated market depth (New, Delete, Add, Change)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;NumOfOrders</td>
+<td>Number of orders that were updated</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Price</td>
+<td>Price level of orders that were updated</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Qty</td>
+<td>Quantity of securities that were updated</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;Side</td>
+<td>Side of the market of this update (Buy / Sell)</td>
+</tr>
+</tbody></table>
+
+<p>Example subsequent message response:</p>
+
+<blockquote>
+<p>Example subsequent message response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{
+  "data": {
+"Denominator":"100",
+"DisplaySymbol":"BTC-USD",
+"SecurityID":"1000000189",
+"Symbol":"BTC-USD",
+"updates": [
+{
+"Action": "New",
+"NumOfOrders": "1",
+"Price": "2037900",
+"Quantity": "500000",
+"Side": "Buy",
+},
+{
+"Action": "Change",
+"NumOfOrders": "9",
+"Price": "2056150",
+
+"Quantity": "6160000",
+"Side": "Sell",
+}
+],
+  },
+  "Type":4
+}
+</code></pre></div><h2 id='price-info-subscription-price_info'>Price Info Subscription (price_info)</h2>
+<p>Gets price data for a market.</p>
+<h3 id='subscribe-message-2'>Subscribe Message</h3>
+<blockquote>
+<p>Subscribe message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{
+'user': 'g',
+'action': 'subscribe',
+'type': 'price_info',
+'value': ['BTC-USD'],
+"token":"&lt;provided by Prodigy&gt;"
+};
+</code></pre></div><h3 id='response-2'>Response</h3>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BestBidPrice</td>
+<td>Price level of best bid</td>
+</tr>
+<tr>
+<td>BestBidQty</td>
+<td>Quantity available at best bid</td>
+</tr>
+<tr>
+<td>BestOfferPrice</td>
+<td>Price level of best ask</td>
+</tr>
+<tr>
+<td>BestOfferQty</td>
+<td>Quantity available at best ask</td>
+</tr>
+<tr>
+<td>Denominator</td>
+<td>Factor to divide <Price> by for USD value</td>
+</tr>
+<tr>
+<td>LastTradePrice</td>
+<td>Price that last trade executed</td>
+</tr>
+<tr>
+<td>LastTradeQty</td>
+<td>Quantity of last trade</td>
+</tr>
+<tr>
+<td>LastTradeTimestamp</td>
+<td>Linux timestamp of last trade</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>Symbol of market</td>
+</tr>
+</tbody></table>
+
+<p>Example message response:</p>
+
+<blockquote>
+<p>Example message response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext tab-plaintext"><code>{
+"data": {
+"BestBidPrice":"242385",
+"BestBidQty":"59300",
+"BestOfferPrice":"242390",
+"BestOfferQty":"200",
+"Denominator":"10",
+"LastTradePrice":"242385",
+"LastTradeQty":"97",
+"LastTradeTimestamp":"1660498301",
+"Symbol":"BTC-USD"
+},
+"Type":5
+}
+</code></pre></div><h1 id='stunnel-connectivity'>stunnel Connectivity</h1>
+<p>Prodigy uses stunnel, an open-source implementation used widely as an SSL tunneling tool. Refer to http://www.stunnel.org for more information.</p>
+
+<p>A stunnel provides a secure way to send FIX messages from your FIX client, over the internet, to Prodigy. The possibilities of implementing this will vary based on your existing FIX client setup, but in general it is simple:</p>
+
+<p>FIX Client -&gt; Client-side stunnel -&gt; INTERNET -&gt; Exchange-side stunnel -&gt; <PLACE_HOLDER></p>
+
+<p>Below is a guide to using a dockerized stunnel implementation available to you from Prodigy.</p>
+<h2 id='setup-a-client-side-stunnel-to-connect-to-prodigy-s-clob'>Setup a client-side stunnel to connect to Prodigy’s CLOB</h2><h3 id='important-environment-variables'>Important environment variables</h3>
+<p><code>export CLOB_HOST=clob-alpha.prodigy</code></p>
+
+<p><code>export STUNNEL_PORT=[THE_LOCAL_PORT_TO_OPEN]</code></p>
+
+<aside class="notice">
+NOTE: (Optional) If TCP port 36814 is in use, change the local tunnel port to an available one.
+</aside>
+
+<p>Alternatively, these environment variables can be passed in on the command line (see below).</p>
+<h3 id='download-prodigy-stunnel-docker-compose-yml-file'>Download Prodigy stunnel docker-compose.yml file</h3>
+<blockquote>
+<p>Prodigy stunnel docker-compose.yml file
+```plaintext
+version: &#39;3.9&#39;
+services:
+stunnel:</p>
+<h1 id='image-dweomer-stunnel'>image: dweomer/stunnel</h1>
+<p>image: gitlab.dev.blockriver.tech:5050/gyeu/stunnel
+container_name: stunnel
+ports:
+- ${STUNNEL_PORT:-36814}:${STUNNEL_PORT:-36814}
+  environment:
+- STUNNEL_SERVICE=fixs-client
+- STUNNEL_CLIENT=yes
+- STUNNEL_ACCEPT=${STUNNEL_PORT:-36814}
+- STUNNEL_CONNECT=${CLOB_HOST:-localhost}:36813
+- STUNNEL_PSKSECRETS=/etc/stunnel/psk.txt
+  volumes:
+- ./psk.dev.txt:/etc/stunnel/psk.txt:ro
+  logging:
+  driver: &quot;json-file&quot;
+  options:
+  max-size: &quot;50m&quot;
+  max-file: &quot;10&quot;
+```</p>
+</blockquote>
+<h3 id='build-docker-container-with-the-prodigy-stunnel-docker-compose-yml-file'>Build Docker container with the Prodigy stunnel docker-compose.yml file</h3>
+<p><code>cd to/dir/that/contains/docker-compose.yml</code></p>
+
+<p><code>docker-compose up docker-compose.yml</code></p>
+
+<p>This will keep the container running in the foreground and we can press ctrl-c at any time to stop it.</p>
+<h3 id='install-docker-and-docker-compose'>Install docker and docker-compose</h3>
+<p>We advise installing Docker Desktop. While you can install Docker and Docker Compose, Docker Desktop is an easy-to-install application for your macOS, Linux, or Windows environment that enables you to build and share containerized applications and microservices. Installing Docker Desktop also includes docker-compose out of the box, along with Docker engine and Docker CLI. Installing Docker Desktop is the fastest and simplest way to get started.</p>
+
+<p>Alternatively, if you prefer to run the container in the background, use the following command:</p>
+
+<p><code>docker-compose up -d docker-compose.yml</code></p>
+
+<p>If running the container in the background, remember to stop the stunnel container when not using it, as it will occupy the port until the container is terminated.</p>
+
+<p>Update configuration of your FIX client</p>
+
+<ul>
+<li>target host = 127.0.0.1</li>
+<li>target port = 36814</li>
+</ul>
+<h1 id='fix-api'>FIX API</h1>
+<p>FIX (Financial Information eXchange) API is a messaging protocol used in the electronic trading industry. It allows clients and brokers to enter orders, submit cancel requests, and receive fills. The Prodigy Protocol FIX API is intended to be used in conjunction with the FIX 4.4 Protocol Specification.</p>
+
+<p>To establish a connection using the FIX protocol, clients and brokers use a software called FIX engines. At a predetermined start time, Client A and Broker B connect their FIX engines using a predetermined host and comp ID.</p>
+
+<p>Authentication results over a secure FIX protocol ensuring privacy of data exchange. The authentication process provides privacy and a reliable FIX protocol for effective communication between clients and brokers throughout electronic trade.  Responses are formatted as strings and given numerical tags for efficient communication between clients and brokers.</p>
+
+<p>In all of the following example messages, the “Anatomy of” section displays the FIX tags in header, body, trailer format.</p>
+<h2 id='logon-lt-a-gt'><code>Logon &lt;A&gt;</code></h2>
+<p>Use the <code>Logon &lt;A&gt;</code> message to authenticate a user establishing a connection to a remote system. The <code>Logon &lt;A&gt;</code> message must be the first message sent by the application requesting to initiate a FIX session.</p>
+
+<p>The <code>HeartBtInt &lt;108&gt;</code> field is used to declare the timeout interval for generating heartbeats,  with both sides holding the same value. The HeartBtInt <108> value should be agreed upon by the two firms, specified by the Logon initiator, and echoed back by the Logon acceptor.</p>
+
+<p>Upon receipt of a <code>Logon &lt;A&gt;</code> message, the session acceptor will authenticate the party requesting connection and issue a <code>Logon &lt;A&gt;</code> message as acknowledgment that the connection request has been accepted. The acknowledgment <code>Logon &lt;A&gt;</code> can also be used by the initiator to validate that the connection was established with the correct party.</p>
+
+<p>The session acceptor must be prepared to immediately begin processing messages after receipt of the <code>Logon &lt;A&gt;</code>. The session initiator can choose to begin transmission of FIX messages before receipt of the confirmation <code>Logon &lt;A&gt;</code>, however it is recommended to wait for the return <code>Logon &lt;A&gt;</code> message to accommodate encryption key negotiation.</p>
+
+<p>The confirmation <code>Logon &lt;A&gt;</code> can be used for encryption key negotiation. If a session key is deemed to be weak, a stronger session key can be suggested by returning a <code>Logon &lt;A&gt;</code> message with a new key. This is only valid for encryption protocols that allow for key negotiation. (See the FIX Web Site&#39;s Application notes for more information on a method for encryption and key passing.)</p>
+
+<p>The <code>Logon &lt;A&gt;</code> message can be used to specify the <code>MaxMessageSize <383></code> supported. This can be used to control fragmentation rules for very large messages which support fragmentation. It can also be used to specify the MsgTypes supported for both sending and receiving.</p>
+<h3 id='anatomy-of-a-logon-message'>Anatomy of a Logon Message</h3>
+<p>Payload example</p>
+
+<blockquote>
+<p>Logon payload example
+<code>plaintext
+8=FIX.4.4 | 9=94 | 35=A | 49=ACCOUNT_MNEMONIC | 56=order_router | 34=1 | 52=20221007-15:49:42.769 | 98=0 | 108=30 | 141=Y | 10=112 |
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><MessageHeader></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>MsgType<35>=A</td>
+</tr>
+<tr>
+<td>8</td>
+<td>FIX 4.4</td>
+<td>BeginString</td>
+<td>Y</td>
+<td>FIX protocol version</td>
+</tr>
+<tr>
+<td>9</td>
+<td>94</td>
+<td>BodyLength</td>
+<td>Y</td>
+<td>Message length in bytes</td>
+</tr>
+<tr>
+<td>35</td>
+<td>A</td>
+<td>MsgType</td>
+<td>Y</td>
+<td>Message type is a Logon message</td>
+</tr>
+<tr>
+<td>49</td>
+<td>ACCOUNT_MNEMONIC</td>
+<td>SenderCompID</td>
+<td>Y</td>
+<td>ID of party sending message</td>
+</tr>
+<tr>
+<td>56</td>
+<td>order_router</td>
+<td>TargetCompID</td>
+<td>Y</td>
+<td>ID of party receiving message</td>
+</tr>
+<tr>
+<td>34</td>
+<td>1</td>
+<td>MsgSeqNum</td>
+<td>Y</td>
+<td>Integer message sequence number</td>
+</tr>
+<tr>
+<td>52</td>
+<td>20221007-14:49.769</td>
+<td>SendingTime</td>
+<td>Y</td>
+<td>Time of message</td>
+</tr>
+<tr>
+<td>98</td>
+<td>0</td>
+<td>EncryptMethod</td>
+<td>Y</td>
+<td>Method of encryption</td>
+</tr>
+<tr>
+<td>108</td>
+<td>30</td>
+<td>HeartBint</td>
+<td>Y</td>
+<td>30 second interval between heartbeat messages</td>
+</tr>
+<tr>
+<td>141</td>
+<td>Y</td>
+<td>ResetSeqNumFlag</td>
+<td>Y</td>
+<td>Indicates that both sides of the FIX session should restart sequence numbers</td>
+</tr>
+<tr>
+<td>10</td>
+<td>112</td>
+<td>CheckSum</td>
+<td>Y</td>
+<td>Checksum of FIX message</td>
+</tr>
+<tr>
+<td>95</td>
+<td>RawData</td>
+<td>RawDataLength</td>
+<td>N</td>
+<td>Required for some authentication methods</td>
+</tr>
+<tr>
+<td>96</td>
+<td>data</td>
+<td>RawData</td>
+<td>N</td>
+<td>Required for some authentication methods</td>
+</tr>
+<tr>
+<td>789</td>
+<td></td>
+<td>NextExpectedMsgSeqNum</td>
+<td>N</td>
+<td>Optional, alternative via counterparty bi-lateral agreement message gap detection and recovery approach</td>
+</tr>
+<tr>
+<td>383</td>
+<td></td>
+<td>MaxMessageSize</td>
+<td>N</td>
+<td>Can be used to specify the maximum number of bytes supported for messages received</td>
+</tr>
+<tr>
+<td>384</td>
+<td></td>
+<td>NoMsgTypes</td>
+<td>N</td>
+<td>Specifies the number of repeating <code>RefMsgTypes &lt;372&gt;</code> specified</td>
+</tr>
+<tr>
+<td>=&gt; 372</td>
+<td></td>
+<td>RefMsgType</td>
+<td>N</td>
+<td>Specifies a specific, supported <code>MsgType &lt;35&gt;</code>. Required if <code>NoMsgTypes &lt;384&gt;</code> is &gt; 0. Should be specified from the point of view of the sender of the <code>Logon &lt;A&gt;</code> message.</td>
+</tr>
+<tr>
+<td>=&gt; 385</td>
+<td></td>
+<td>MsgDirection</td>
+<td>N</td>
+<td>Indicates direction (send vs. receive) of a supported <code>MsgType &lt;35&gt;</code>. Required if <code>NoMsgTypes &lt;384&gt;</code> is &gt; 0. Should be specified from the point of view of the sender of the <code>Logon &lt;A&gt;</code> message.</td>
+</tr>
+<tr>
+<td>464</td>
+<td></td>
+<td>TestMessageindicator</td>
+<td>N</td>
+<td>Can be used to specify that this FIX session will be sending and receiving &#39;test&#39; vs. &#39;production&#39; messages.</td>
+</tr>
+<tr>
+<td>553</td>
+<td></td>
+<td>Username</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>554</td>
+<td></td>
+<td>Password</td>
+<td>N</td>
+<td>Note: minimal security exists without transport-level encryption.</td>
+</tr>
+<tr>
+<td><code>&lt;MessageTrailer&gt;</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='logout-lt-5-gt'><code>Logout &lt;5&gt;</code></h2>
+<p>Use the <code>Logout &lt;5&gt;</code> message to initiate or confirm the termination of a FIX session. If disconnection occurs without the exchange of Logout messages, this should be interpreted as an abnormal condition.</p>
+
+<p>Before closing the session, the initiator of the Logout message should wait for the opposite side to respond with a confirming Logout message. This gives the remote end a chance to perform any necessary Gap Fill operations. If the remote side does not respond in an appropriate time frame, the session may be terminated.</p>
+
+<p>After sending the Logout message, the initiator should not send any messages unless requested to do so by the logout acceptor via a <code>Resend Request &lt;2&gt;</code>.</p>
+<h3 id='anatomy-of-a-logout-message'>Anatomy of a Logout Message</h3>
+<p>Logout payload example</p>
+
+<blockquote>
+<p>Logout payload example
+<code>plaintext
+8=FIX.4.4 | 9=66 | 35=5 | 49=ACCOUNT_MNEMONIC | 52=20221027-00:00:00.949 | 56=order_router | 10=027 |
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>8</td>
+<td>FIX 4.4</td>
+<td>BeginString</td>
+<td>Y</td>
+<td>FIX protocol version</td>
+</tr>
+<tr>
+<td>9</td>
+<td>66</td>
+<td>BodyLength</td>
+<td>Y</td>
+<td>Message length in bytes</td>
+</tr>
+<tr>
+<td>35</td>
+<td>5</td>
+<td>MsgType</td>
+<td>Y</td>
+<td>Message type is a Logout message</td>
+</tr>
+<tr>
+<td>49</td>
+<td>ACCOUNT_MNEMONIC</td>
+<td>SenderCompID</td>
+<td>Y</td>
+<td>ID of party sending message</td>
+</tr>
+<tr>
+<td>52</td>
+<td>20221027-00:00:00.949</td>
+<td>SendingTime</td>
+<td>Y</td>
+<td>Time of message</td>
+</tr>
+<tr>
+<td>56</td>
+<td>order_router</td>
+<td>TargetCompID</td>
+<td>Y</td>
+<td>ID of party receiving message</td>
+</tr>
+<tr>
+<td>10</td>
+<td>027</td>
+<td>Checksum</td>
+<td>Y</td>
+<td>Checksum of FIX message</td>
+</tr>
+<tr>
+<td><code>&lt;MessageHeader&gt;</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>String</td>
+<td>Text</td>
+<td>N</td>
+<td>Information to include with the message</td>
+</tr>
+<tr>
+<td>354</td>
+<td></td>
+<td>EncodedTextLen</td>
+<td></td>
+<td>Must be set if Encoded Text <355> field is specified and must immediately precede it</td>
+</tr>
+<tr>
+<td>355</td>
+<td></td>
+<td>EncodedText</td>
+<td></td>
+<td>Encoded (non-ASCII characters) representation of the Text<code>&lt;58&gt;</code>field in the encoded format specified via the MessageEncoding <code>&lt;347&gt;</code> field</td>
+</tr>
+<tr>
+<td><code>&lt;MessageTrailer&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='newordersingle-lt-d-gt'><code>NewOrderSingle &lt;D&gt;</code></h2>
+<p>Use the <code>New Order &lt;D&gt;</code> message type to electronically submit securities and forex orders to a broker for execution.</p>
+
+<p>Orders can be submitted with special handling and execution instructions. Handling instructions refer to how the broker should handle the order on its trading floor (see <code>HandlInst &lt;21&gt;</code> field). Execution instructions contain explicit directions as to how the order should be executed (see <code>ExecInst &lt;18&gt;</code> field).</p>
+
+<p>New Order messages received with the <code>PossResend &lt;97&gt;</code> flag set in the header should be validated by <code>ClOrdID &lt;11&gt;</code>. Implementations should also check order parameters (side, symbol, quantity, etc.) to determine if the order had been previously submitted. PossResends previously received should be acknowledged back to the client via an Execution - Status message. PossResends that were not previously received should be processed as a new order and acknowledged via an Execution - New message.</p>
+
+<p>The value specified in the <code>TransactTime &lt;60&gt;</code> field should allow the receiver of the order to apply business rules to determine if the order is potentially &quot;stale,&quot; for example, in the event that there have been communication problems.</p>
+
+<p>The <code>OrdType &lt;40&gt;</code> field can be set to Market, Limit, Forex - Swap, or Previously Quoted, while the <code>Product &lt;460&gt;</code> field is set to 4 (CURRENCY).</p>
+
+<p>To &quot;take&quot; an <code>IOI &lt;6&gt;</code> (or <code>Quote &lt;S&gt;</code>) from an ECN or exchange and not display the order on the book, the New Order message must contain the <code>TimeInForce &lt;59&gt;</code> field set to &quot;ImmediateOrCancel&quot; and an OrdType <40> field set to &quot;Previously Indicated&quot; ( or &quot;Previously Quoted&quot;).
+Anatomy of a NewOrderSingle Message</p>
+
+<p>NewOrderSingle payload example</p>
+
+<blockquote>
+<p>NewOrderSingle payload example
+<code>plaintext
+8=FIX.4.4 | 9=66 | 35=5 | 49=ACCOUNT_MNEMONIC | 52=20221027-00:00:00.949 | 56=order_router | 10=027 |
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>8</td>
+<td>FIX 4.4</td>
+<td>BeginString</td>
+<td>Y</td>
+<td>FIX protocol version</td>
+</tr>
+<tr>
+<td>9</td>
+<td>66</td>
+<td>BodyLength</td>
+<td>Y</td>
+<td>Message length in bytes</td>
+</tr>
+<tr>
+<td>35</td>
+<td>5</td>
+<td>MsgType</td>
+<td>Y</td>
+<td>Message type is a Logout message</td>
+</tr>
+<tr>
+<td>49</td>
+<td>String</td>
+<td>ACCOUNT_MNEMONIC</td>
+<td>Y</td>
+<td>ID of party sending message</td>
+</tr>
+<tr>
+<td>52</td>
+<td>20221027-00:00:00.949</td>
+<td>SendingTime</td>
+<td>Y</td>
+<td>Time of message</td>
+</tr>
+<tr>
+<td>56</td>
+<td>order_router</td>
+<td>String</td>
+<td>Y</td>
+<td>ID of party receiving message</td>
+</tr>
+<tr>
+<td>10</td>
+<td>027</td>
+<td>Checksum</td>
+<td>Y</td>
+<td>Checksum of FIX message</td>
+</tr>
+<tr>
+<td><code>&lt;MessageHeader&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>MsgType<35>=D</td>
+</tr>
+<tr>
+<td>11</td>
+<td>String</td>
+<td>ClOrdID</td>
+<td>Y</td>
+<td>Unique identifier of the order as assigned by institution or by the intermediary with closest association with the investor</td>
+</tr>
+<tr>
+<td>1</td>
+<td>String</td>
+<td>Account</td>
+<td>N</td>
+<td>Account mnemonic as agreed between buy and sell sides, e.g. broker and institution or investor/intermediary and fund manager</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Exchange</td>
+<td>ExDestination</td>
+<td>N</td>
+<td>Execution destination as defined by institution when order is entered</td>
+</tr>
+<tr>
+<td><code>&lt;Instrument&gt;</code></td>
+<td></td>
+<td>Instrument fields</td>
+<td>Y</td>
+<td>One or more of the following instrument tags</td>
+</tr>
+<tr>
+<td><em>55</em></td>
+<td><em>String</em></td>
+<td><em>Symbol</em></td>
+<td><em>N</em></td>
+<td><em>Common and human readable representation of the securities</em></td>
+</tr>
+<tr>
+<td><em>48</em></td>
+<td><em>String</em></td>
+<td><em>SecurityID</em></td>
+<td><em>N</em></td>
+<td><em>Takes precedence in identifying security to counterparty over SecurityA/tID <455> block. Requires SecurityIDSource <22> if specified</em></td>
+</tr>
+<tr>
+<td><em>22</em></td>
+<td><em>String</em></td>
+<td><em>SecurityIDSource</em></td>
+<td><em>N</em></td>
+<td><em>Alternate identifier for this security</em></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Side</td>
+<td>char</td>
+<td>Y</td>
+<td><em>Side of the order</em></td>
+</tr>
+<tr>
+<td>60</td>
+<td>TransactTime</td>
+<td>UTCTimestamp</td>
+<td>Y</td>
+<td>Time this order request was initiated/released by the trader, trading system, or intermediary</td>
+</tr>
+<tr>
+<td>38</td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>Quantity ordered</td>
+</tr>
+<tr>
+<td>40</td>
+<td>OrdType</td>
+<td>char</td>
+<td>Y</td>
+<td>Order Type<code>1 = market 2 = limit 3 = stop 4 = spot limit</code></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Price</td>
+<td>Price</td>
+<td>N*</td>
+<td>Price per unit of quantity Required for limit orders</td>
+</tr>
+<tr>
+<td>59</td>
+<td>TimeInForce</td>
+<td>char</td>
+<td>N*</td>
+<td>Specifies how long the order remains in effect. Absence of this field is interpreted as DAY</td>
+</tr>
+<tr>
+<td><code>&lt;MessageTrailer&gt;</code></td>
+<td></td>
+<td>Y</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='ordercancelrequest-lt-f-gt'><code>OrderCancelRequest &lt;F&gt;</code></h2>
+<p>Use the <code>Order Cancel Request &lt;F&gt;</code> message request to cancel all of the remaining quantity of an existing order. Note that the <code>Order Cancel/Replace Request &lt;G&gt;</code> should be used to partially cancel or reduce an order.</p>
+
+<p>The request will only be accepted if the order can successfully be pulled back from the exchange floor without executing.</p>
+
+<p>A cancel request is assigned a <code>ClOrdID &lt;11&gt;</code> and is treated as a separate entity. If rejected, the <code>ClOrdID &lt;11&gt;</code> of the cancel request will be sent in the <code>Cancel Reject &lt;9&gt;</code> message, as well as the <code>ClOrdID &lt;11&gt;</code> of the actual order in the <code>OrigClOrdID &lt;41&gt;</code> field. The <code>ClOrdID &lt;11&gt;</code> assigned to the cancel request must be unique amongst the <code>ClOrdID &lt;11&gt;</code> assigned to regular orders and replacement orders.</p>
+<h3 id='anatomy-of-a-ordercancelrequest-message'>Anatomy of a OrderCancelRequest Message</h3>
+<p>OrderCancelRequest payload example</p>
+
+<blockquote>
+<p>OrderCancelRequest payload example
+<code>plaintext
+8=FIX.4.4 | 9=197 | 35=F | 49=EIB_TRADER1_EMAIL_COM | 56=order_router | 34=6 | 52=20221103-05:15:53.225 | 41=ACC_OO1-1567450006911 | 11=ACC_001_1667450006914 | 1=SCC_001 55=BTC-USD | 48=1000000189 | 54=1 | 60=20221103-04:33:27.139 | 38=69 | 10=238
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>&lt;MessageHeader&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>MsgType<35>=F</td>
+</tr>
+<tr>
+<td>41</td>
+<td>ACC_001_1567450006911</td>
+<td>OrigIOrdID</td>
+<td>Y</td>
+<td>ClOrdID <11> of the previous order (NOT the initial order of the day when canceling or replacing an order</td>
+</tr>
+<tr>
+<td>11</td>
+<td>ACC_001_1667450006914</td>
+<td>CIOrdiD</td>
+<td>Y</td>
+<td>Unique ID of cancel request as assigned by the institution</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Value=ACC_001</td>
+<td>Account</td>
+<td>N</td>
+<td>Account mnemonic as agreed between buy and sell sides, e.g. broker and institution or investor/intermediary and fund manager</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Value=BTC-USD</td>
+<td>Symbol</td>
+<td>Y</td>
+<td>Common and human readable representation of the securities</td>
+</tr>
+<tr>
+<td>48</td>
+<td>1000000189</td>
+<td>SecurityiD</td>
+<td>N</td>
+<td>Alternate security identifier</td>
+</tr>
+<tr>
+<td>54</td>
+<td>1</td>
+<td>Side</td>
+<td>Y</td>
+<td>Side of the order</td>
+</tr>
+<tr>
+<td>60</td>
+<td>20221103-04:33:27.139</td>
+<td>TransactTime</td>
+<td>Y</td>
+<td>Time this order request was initiated/released by the trader, trading system, or intermediary</td>
+</tr>
+<tr>
+<td>38</td>
+<td>69</td>
+<td>OrderQty</td>
+<td>Y</td>
+<td>Number of instruments ordered</td>
+</tr>
+<tr>
+<td><code>&lt;MessageTrailer&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='ordermassstatus-lt-af-gt'><code>OrderMassStatus &lt;AF&gt;</code></h2>
+<p>The <code>Order Mass Status Request &lt;AF&gt;</code> message requests the status of orders that match the criteria specified in the request.</p>
+
+<p>A mass status request is assigned <code>ClOrdID &lt;11&gt;</code> and is treated as a separate entity. Upon processing the request, ExecutionReports with <code>ExecType &lt;150&gt;</code>=&quot;Order Status&quot; are returned for all orders matching the criteria provided on the request.</p>
+
+<p>Use the <code>MassStatusReqType &lt;585&gt;</code> field to specify the selection criteria for the orders to be included upon the request.</p>
+<h3 id='anatomy-of-a-ordermassstatus-message'>Anatomy of a OrderMassStatus Message</h3>
+<p>OrderMassStatus payload example</p>
+
+<blockquote>
+<p>OrderMassStatus payload example
+<code>plaintext
+8=FIX.4.4 | 9=93 35=AF | 49=EIB_TRADER1_EMAIL_COM | 56=order_router | 34=5. | 52=20221103-05:15:40.884 | 584=4 | 585=7 | 1=* | 10=039
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><MessageHeader></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>MsgType<35>=AF</td>
+</tr>
+<tr>
+<td>584</td>
+<td>4</td>
+<td>MassStatusReqID</td>
+<td>Y</td>
+<td>Unique ID of mass status request as assigned by the institution</td>
+</tr>
+<tr>
+<td>585</td>
+<td>7</td>
+<td>MassStatusReqType</td>
+<td>Y</td>
+<td>Specifies the scope of the mass status request</td>
+</tr>
+<tr>
+<td><B> Valid Values </B></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>Status for orders for a security</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>Status for orders for an Underlying security</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>Status for orders for a Product<code>&lt;460&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>4</td>
+<td>Status for orders for a CFICode <code>&lt;461&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>Status for orders for a SecurityType <code>&lt;167&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>Status for orders for a trading session</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>Status for all orders</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>Status for orders for a PartyID <448></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>9</td>
+<td>Status for orders for an account</td>
+</tr>
+<tr>
+<td>1</td>
+<td>*</td>
+<td>Account</td>
+<td>N</td>
+<td>Account</td>
+</tr>
+<tr>
+<td><code>&lt;MessageTrailer&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='tradecapturereportrequest-lt-ad-gt'><code>TradeCaptureReportRequest &lt;AD&gt;</code></h2>
+<p>Use the <code>Trade Capture Report Request &lt;AD&gt;</code> to:
+* Request one or more trade capture reports based on specific selection criteria provided on the trade capture report request
+* Subscribe for trade capture reports based upon selection criteria provided on the trade capture report request.</p>
+
+<p>Except for <code>TradeRequestID &lt;568&gt;</code> and <code>SubscriptionRequestType &lt;263&gt;</code>, each field in the Trade Capture Report Request <AD> identifies filters. After meeting all specified filters, trade reports will be returned. Note that the filters are combined using an implied &quot;and&quot; - a trade report must satisfy every specified filter to be returned.</p>
+
+<p>After looking at the <code>TradeCaptureReportRequest</code> in the example section below, notice the response sent back to the client is an execution report that matches the filters and queries in the original TradeCaptureReportRequest.</p>
+<h3 id='anatomy-of-a-tradecapturereportrequest-message'>Anatomy of a <code>TradeCaptureReportRequest</code> Message</h3>
+<p>TradeCaptureReportRequest payload example</p>
+
+<blockquote>
+<p>TradeCaptureReportRequest payload example
+<code>plaintext
+8=FIX.4.4 | 9=117 | 35=AD | 34=3 | 49=EIB_TRADER1_EMAIL_COM | 52=20221103-05:15:40.884 | 56=order_router | 1=* | 58=* | 100=* | 568=T21666588915 | 569=0 | 10=137
+</code></p>
+</blockquote>
+
+<p>Where:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Tag Name</th>
+<th>Is Required</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>&lt;MessageHeader&gt;</code></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>MsgType<35>=AF</td>
+</tr>
+<tr>
+<td>1</td>
+<td>*</td>
+<td>Account</td>
+<td>Y</td>
+<td>Account mnemonic as agreed between buy and sell sides</td>
+</tr>
+<tr>
+<td>58</td>
+<td>*</td>
+<td>Text</td>
+<td>Y</td>
+<td>Free format text string</td>
+</tr>
+<tr>
+<td>100</td>
+<td>*</td>
+<td>ExDestination</td>
+<td>Y</td>
+<td>Execution destination as defined by institution when order is entered</td>
+</tr>
+<tr>
+<td>568</td>
+<td>T21656588915</td>
+<td>TradeRequestID</td>
+<td>Y</td>
+<td>Identifier for the trade request</td>
+</tr>
+<tr>
+<td>569</td>
+<td>0</td>
+<td>TradeRequestType</td>
+<td>Y</td>
+<td>Type of Trade Capture Report</td>
+</tr>
+<tr>
+<td><b> Valid Values </b></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+<td>all trades</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>Matched trades matching Criteria provided on request (parties, exec id, trade id, order id, instrument, input source, etc.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>Unmatched trades that match criteria</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>Unreported trades that match criteria</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>4</td>
+<td>Advisories that match criteria</td>
+</tr>
+<tr>
+<td><MessageTrailer></td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="plaintext">plaintext</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
